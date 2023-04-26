@@ -6,14 +6,19 @@
 
 import javax.swing.*;
 
-public class Screen extends JFrame
+public class GameView extends JFrame
 {
-    public Screen()
+    public GameView()
     {
         // C - Create and display the window.
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Wii Tennis");
         this.setSize(1000, 800);
         this.setVisible(true);
+    }
+
+    public static void main(String[] args)
+    {
+        GameView window = new GameView();
     }
 }
