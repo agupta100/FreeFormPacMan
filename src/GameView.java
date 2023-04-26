@@ -24,7 +24,7 @@ public class GameView extends JFrame
 
     public void paint(Graphics g)
     {
-
+        g.drawImage(image, 300, 475, 100, 100, this);
     }
 
     public Image getImage()
