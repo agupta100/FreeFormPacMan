@@ -12,9 +12,10 @@ public class GameView extends JFrame
     private static final int
             WINDOW_WIDTH = 800,
             WINDOW_HEIGHT = 600;
-    public GameView()
+    private Image image;
+    public GameView(Image image)
     {
-        // C - Create and display the window.
+        this.image = image;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Wii Tennis");
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -26,8 +27,10 @@ public class GameView extends JFrame
 
     }
 
-    public static void main(String[] args)
+    public Image getImage()
     {
-        GameView window = new GameView();
+        return image;
     }
+
+
 }

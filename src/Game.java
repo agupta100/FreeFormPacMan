@@ -1,3 +1,5 @@
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Game
@@ -8,10 +10,17 @@ public class Game
             SMALLEST_RADIUS = 10,
             CHANGE_IN_RADIUS = 30;
     private GameView window;
+    private Image image;
 
 
     public Game()
     {
-        window = new GameView();
+        image = new ImageIcon("Resources/WiiTennisPlayer1.png").getImage();
+        window = new GameView(image);
+    }
+
+    public static void main(String[] args)
+    {
+        Game window = new Game();
     }
 }
