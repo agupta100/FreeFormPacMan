@@ -19,7 +19,21 @@ public class Ball
     {
 
         TennisImage = new ImageIcon("Resources/WiiTennisBall.jpg").getImage();
+        x = 0;
+        y = 300;
+        dx = 5;
+        dy = 5;
     }
+
+    public void move()
+    {
+        x += dx; // update the x-coordinate by adding the horizontal movement
+        if (x < 0 || x > 600)
+        { // if the ball goes out of bounds, reverse the direction
+            dx = -dx;
+        }
+    }
+
 
     // Methods
     public boolean isContact()

@@ -43,6 +43,7 @@ public class GameView extends JFrame
         g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         g.drawImage(image, 300, 475, 100, 100, this);
         user.draw(g);
+        tennis.move();
         tennis.draw(g);
     }
 
