@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * @author Aarav Gupta
  * Class is used to design the ball physics and whether the
@@ -10,6 +13,13 @@ public class Ball
     private int y;
     private int dx;
     private int dy;
+    private Image TennisImage;
+
+    public Ball()
+    {
+
+        TennisImage = new ImageIcon("Resources/WiiTennisBall.jpg").getImage();
+    }
 
     // Methods
     public boolean isContact()
@@ -57,4 +67,9 @@ public class Ball
     {
         this.dy = dy;
     }
+    public void draw(Graphics g)
+    {
+        g.drawImage(TennisImage, x, y, 200, 100, null);
+    }
+
 }

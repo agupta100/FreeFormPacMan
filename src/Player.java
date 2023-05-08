@@ -78,7 +78,7 @@ public class Player
     }
     public void draw(Graphics g)
     {
-        g.drawImage(WiiImage, x, y, 100, 100, null);
+        g.drawImage(WiiImage, x, y, 200, 100, null);
     }
 
 

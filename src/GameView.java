@@ -10,19 +10,22 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+
 public class GameView extends JFrame
         implements MouseListener, MouseMotionListener
 {
     private static final int
             WINDOW_WIDTH = 800,
             WINDOW_HEIGHT = 600;
-    private Image image;
+    private final Image image;
     private int xMouse;
     private int yMouse;
     private Player user;
+    private Ball tennis;
     public GameView(Image image)
     {
         user = new Player("Steve");
+        tennis = new Ball();
         this.image = image;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -40,6 +43,7 @@ public class GameView extends JFrame
         g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         g.drawImage(image, 300, 475, 100, 100, this);
         user.draw(g);
+        tennis.draw(g);
     }
 
 
@@ -71,7 +75,8 @@ public class GameView extends JFrame
 
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e)
+    {
 
     }
 
