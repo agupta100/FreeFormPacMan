@@ -15,7 +15,7 @@ public class Game
 
     public Game()
     {
-        image = new ImageIcon("Resources/WiiTennisPlayer1.png").getImage();
+        image = new ImageIcon("Resources/MattWiiTennis.png").getImage();
         window = new GameView(image);
     }
 

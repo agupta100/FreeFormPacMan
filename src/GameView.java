@@ -19,22 +19,29 @@ public class GameView extends JFrame
     private Image image;
     private int xMouse;
     private int yMouse;
+    private Player user;
     public GameView(Image image)
     {
+        user = new Player("Steve");
         this.image = image;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         this.setTitle("Wii Tennis");
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setVisible(true);
+        this.addMouseMotionListener(this);
 //        window.addMouseListener(window);
 //        window.addMouseMotionListener(window);
     }
 
     public void paint(Graphics g)
     {
+        g.setColor(Color.white);
+        g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
         g.drawImage(image, 300, 475, 100, 100, this);
-        g.drawImage(image, xMouse, yMouse, 100, 100, this);
+        user.draw(g);
     }
+
 
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -44,23 +51,18 @@ public class GameView extends JFrame
     public void mouseMoved(MouseEvent e)
     {
         // find out where the mouse is
-         xMouse = e.getX();
-         yMouse = e.getY();
+        int xMouse = e.getX();
+        int yMouse = e.getY();
 
-        // update the location of the circle so that it follows the mouse
-
-
-        // in your code, do some calculation
-        // example:
-        // ship.updateCannonAngle(xMouse, yMouse);
-        // ship.updateX(xMouse);
-
+        // update the location of the player so that it follows the mouse
+        user.setX(xMouse);
+        user.setY(yMouse);
 
         // update the screen
         repaint();
-
-
     }
+
+
 
     public Image getImage()
     {

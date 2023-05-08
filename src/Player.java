@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * @author Aarav Gupta
  * Class is used to ensure the user can use mouse/keyboard input to
@@ -11,10 +14,12 @@ public class Player
     private int y;
     private int dx;
     private int dy;
+    private Image WiiImage;
 
     public Player(String name)
     {
         this.name = name;
+        WiiImage = new ImageIcon("Resources/MattWiiTennis.png").getImage();
     }
 
     // Methods
@@ -71,4 +76,10 @@ public class Player
     public void setDy(int dy) {
         this.dy = dy;
     }
+    public void draw(Graphics g)
+    {
+        g.drawImage(WiiImage, x, y, 100, 100, null);
+    }
+
+
 }
