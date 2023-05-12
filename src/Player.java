@@ -19,7 +19,9 @@ public class Player
     public Player(String name)
     {
         this.name = name;
-        WiiImage = new ImageIcon("Resources/MattWiiTennis.png").getImage();
+        this.x = 400; // initial position
+        this.y = 300; // initial position
+        WiiImage = new ImageIcon("Resources/PacMan.png").getImage();
     }
 
     // Methods
@@ -37,49 +39,73 @@ public class Player
         return false;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public int getX() {
+    public int getX()
+    {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(int x)
+    {
         this.x = x;
     }
 
-    public int getY() {
+    public int getY()
+    {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(int y)
+    {
         this.y = y;
     }
 
-    public int getDx() {
+    public int getDx()
+    {
         return dx;
     }
 
-    public void setDx(int dx) {
+    public void setDx(int dx)
+    {
         this.dx = dx;
     }
 
-    public int getDy() {
+    public int getDy()
+    {
         return dy;
     }
 
-    public void setDy(int dy) {
+    public void setDy(int dy)
+    {
         this.dy = dy;
     }
-    public void draw(Graphics g)
+
+    private int score = 0;
+
+    public int getScore()
     {
-        g.drawImage(WiiImage, x, y, 200, 100, null);
+        return score;
     }
 
+    public void setScore(int score)
+    {
+        this.score = score;
+    }
 
+    public void draw(Graphics g)
+    {
+        if (x >= 0 && x <= 900 && y >= 0 && y <= 700)
+        {
+            g.drawImage(WiiImage, x, y, 100, 100, null);
+        }
+    }
 }

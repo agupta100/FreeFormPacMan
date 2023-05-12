@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class Game
 {
@@ -11,16 +10,30 @@ public class Game
             CHANGE_IN_RADIUS = 30;
     private GameView window;
     private Image image;
-
+    private Ball tennis;
+    private Player user;
 
     public Game()
     {
+        tennis = new Ball();
         image = new ImageIcon("Resources/MattWiiTennis.png").getImage();
         window = new GameView(image);
     }
 
-    public static void main(String[] args)
+    public void run()
     {
-        Game window = new Game();
+//        while (true)
+        {
+            tennis.move();
+//            if (tennis.isContact())
+//            {
+//                user.setScore(user.getScore() + 1);
+//            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Game game = new Game();
+        game.run();
     }
 }

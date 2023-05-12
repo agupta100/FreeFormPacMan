@@ -10,46 +10,46 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-
 public class GameView extends JFrame
         implements MouseListener, MouseMotionListener
 {
     private static final int
-            WINDOW_WIDTH = 800,
-            WINDOW_HEIGHT = 600;
+            WINDOW_WIDTH = 1100,
+            WINDOW_HEIGHT = 1000;
     private final Image image;
     private int xMouse;
     private int yMouse;
     private Player user;
     private Ball tennis;
+    private Image background;
     public GameView(Image image)
     {
         user = new Player("Steve");
         tennis = new Ball();
+        background = new ImageIcon("Resources/PacManBackground.jpg").getImage();
         this.image = image;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         this.setTitle("Wii Tennis");
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setVisible(true);
         this.addMouseMotionListener(this);
-//        window.addMouseListener(window);
-//        window.addMouseMotionListener(window);
     }
 
     public void paint(Graphics g)
     {
         g.setColor(Color.white);
         g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-        g.drawImage(image, 300, 475, 100, 100, this);
+        g.drawImage(background, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, this);
         user.draw(g);
         tennis.move();
+        tennis.isContact();
+        tennis.bounce();
         tennis.draw(g);
     }
 
-
     @Override
-    public void mouseDragged(MouseEvent e) {
+    public void mouseDragged(MouseEvent e)
+    {
 
     }
 
@@ -60,11 +60,15 @@ public class GameView extends JFrame
         int yMouse = e.getY();
 
         // update the location of the player so that it follows the mouse
-        user.setX(xMouse);
-        user.setY(yMouse);
+//        if (tennis.over){
+//            user.setX(xMouse);
+//            user.setY(yMouse);
+//        }
+
 
         // update the screen
         repaint();
+//        tennis.isContact();
     }
 
 
@@ -78,26 +82,31 @@ public class GameView extends JFrame
     @Override
     public void mouseClicked(MouseEvent e)
     {
+        tennis.isContact();
+    }
+
+
+    @Override
+    public void mousePressed(MouseEvent e)
+    {
 
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
+    public void mouseReleased(MouseEvent e)
+    {
 
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
+    public void mouseEntered(MouseEvent e)
+    {
 
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
+    public void mouseExited(MouseEvent e)
+    {
 
     }
 }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WiiTennis.iml" filepath="$PROJECT_DIR$/WiiTennis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FreeFormPacMan.iml" filepath="$PROJECT_DIR$/FreeFormPacMan.iml" />
     </modules>
   </component>
 </project>
